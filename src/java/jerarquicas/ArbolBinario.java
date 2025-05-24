@@ -32,6 +32,12 @@ public class ArbolBinario {
         return exito;
     }
 
+    public boolean insertarPorPosicion(Object nuevoElem, Object elemPadre, char posHijo){
+        boolean exito = true;
+
+        return exito;
+    }
+    
     private NodoArbol obtenerNodo(NodoArbol n, Object buscado){
         //metodo PRIVADO que busca un elemento y devuelve el nodo
         // que lo contiene. Si no se encuentra buscado devuelve null
@@ -51,6 +57,4 @@ public class ArbolBinario {
         }
         return resultado;
     }
-
-    
 }
