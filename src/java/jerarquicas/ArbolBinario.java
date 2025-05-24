@@ -106,5 +106,22 @@ public class ArbolBinario {
         return exito;
     }
 
+    public int altura(){
+        return alturaAux(this.raiz);
+    }
+
+    private int alturaAux(NodoArbol nodo){
+        int res = 0;
+        if(nodo!=null){
+            int izq = alturaAux(nodo.getIzquierdo());
+            int der = alturaAux(nodo.getDerecho());
+            if(izq > der){
+                res = izq+1;
+            }else{
+                res = der+1;
+            }
+        }
+        return res;
+    }
 
 }
