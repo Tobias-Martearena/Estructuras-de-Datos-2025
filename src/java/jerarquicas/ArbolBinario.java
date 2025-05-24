@@ -1,4 +1,5 @@
 package java.jerarquicas;
+import java.lineales.dinamicas.Cola;
 import java.lineales.dinamicas.Lista;
 public class ArbolBinario {
    private NodoArbol raiz;
@@ -32,12 +33,26 @@ public class ArbolBinario {
         return exito;
     }
 
-    public boolean insertarPorPosicion(Object nuevoElem, Object posPadre, char posHijo){
+    public boolean insertarPorPosicion(Object nuevoElem, int pos, char posHijo){
         boolean exito = true;
         if(this.raiz == null){
             this.raiz = new NodoArbol(nuevoElem);
         }else{
-            
+            Lista lista = listarPorNivel();
+            if(pos > 0 && pos<=lista.longitud()){
+                NodoArbol padre = (NodoArbol)lista.recuperar(pos);
+                if(padre.getIzquierdo()==null){
+                    padre.setIzquierdo(new NodoArbol(nuevoElem));
+                }else{
+                    if(padre.getDerecho()==null){
+                        padre.setDerecho(new NodoArbol(nuevoElem));
+                    }else{
+                        exito = false;
+                    }
+                }
+            }else{
+                exito = false;
+            }
         }
         return exito;
     }
@@ -63,7 +78,24 @@ public class ArbolBinario {
     }
 
     public Lista listarPorNivel(){
-        Lista
+        Lista lista = new Lista();
+        Cola cola = new Cola();
+        if(this.raiz!= null){
+            cola.poner(this.raiz);
+            while (!cola.esVacia()) {
+                NodoArbol nodo =(NodoArbol)cola.obtenerFrente();
+                cola.sacar();
+                lista.insertar(nodo.getElem(), lista.longitud()+1);
+                if(nodo.getIzquierdo()!= null){
+                    cola.poner(nodo.getIzquierdo());
+                }else{
+                    if(nodo.getDerecho()!=null){
+                        cola.poner(nodo.getDerecho());
+                    }
+                }
+            }
+        }
+        return lista;
     }
 
     public boolean esVacio(){
