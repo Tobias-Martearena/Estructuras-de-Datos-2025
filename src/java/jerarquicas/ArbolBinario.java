@@ -32,12 +32,16 @@ public class ArbolBinario {
         return exito;
     }
 
-    public boolean insertarPorPosicion(Object nuevoElem, Object elemPadre, char posHijo){
+    public boolean insertarPorPosicion(Object nuevoElem, Object posPadre, char posHijo){
         boolean exito = true;
-
+        if(this.raiz == null){
+            this.raiz = new NodoArbol(nuevoElem);
+        }else{
+            
+        }
         return exito;
     }
-    
+
     private NodoArbol obtenerNodo(NodoArbol n, Object buscado){
         //metodo PRIVADO que busca un elemento y devuelve el nodo
         // que lo contiene. Si no se encuentra buscado devuelve null
@@ -56,5 +60,13 @@ public class ArbolBinario {
             }
         }
         return resultado;
+    }
+
+    public boolean esVacio(){
+        boolean exito = true;
+        if(this.raiz != null){
+            exito = false;
+        }
+        return exito;
     }
 }
