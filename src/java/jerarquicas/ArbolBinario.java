@@ -120,6 +120,8 @@ public class ArbolBinario {
             }else{
                 res = der+1;
             }
+        }else{
+            res = -1;
         }
         return res;
     }
