@@ -1,5 +1,5 @@
 package java.jerarquicas;
-
+import java.lineales.dinamicas.Lista;
 public class ArbolBinario {
    private NodoArbol raiz;
 
@@ -62,6 +62,10 @@ public class ArbolBinario {
         return resultado;
     }
 
+    public Lista listarPorNivel(){
+        Lista
+    }
+
     public boolean esVacio(){
         boolean exito = true;
         if(this.raiz != null){
@@ -69,4 +73,6 @@ public class ArbolBinario {
         }
         return exito;
     }
+
+
 }

@@ -4,6 +4,11 @@ public class Nodo {
     private Object elemento;
     private Nodo enlace;
 
+    public Nodo(Object unElemento){
+        this.elemento = unElemento;
+        this.enlace = null;
+    }
+
     public Nodo(Object unElemento, Nodo unEnlace){
         this.elemento = unElemento;
         this.enlace = unEnlace;
