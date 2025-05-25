@@ -1,7 +1,9 @@
 package java.jerarquicas;
 import java.lineales.dinamicas.Cola;
 import java.lineales.dinamicas.Lista;
+
 public class ArbolBinario {
+
    private NodoArbol raiz;
 
    public ArbolBinario(){
@@ -151,4 +153,28 @@ public class ArbolBinario {
         return alturaAux;
     }
 
+    public Object padre(Object elemento) {
+        return padreRec(this.raiz, elemento);
+    }
+
+    private Object padreRec(NodoArbol nodo, Object elem) {
+        Object res = null;
+        if(nodo != null){
+            if(nodo.getIzquierdo() != null && nodo.getIzquierdo().getElem().equals(elem)){
+                res = nodo.getElem();
+            }else{
+                if(nodo.getDerecho() != null && nodo.getDerecho().getElem().equals(elem)){
+                    res = nodo.getElem();
+                }else{
+                    res = padreRec(nodo.getIzquierdo(), elem);
+
+                    if(res == null){
+                        res = padreRec(nodo.getDerecho(), elem);
+                    }
+                }
+            }
+        }
+        return res;
+    }
+    
 }
