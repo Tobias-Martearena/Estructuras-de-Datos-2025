@@ -126,4 +126,29 @@ public class ArbolBinario {
         return res;
     }
 
+    public int nivel(Object elemento){
+        return nivelAux(this.raiz, elemento, -1);
+    }
+
+    private int nivelAux(NodoArbol nodo,Object elem, int altura){
+        int alturaAux = -1;
+        altura++;
+        if(nodo != null){
+            if(nodo.getElem().equals(elem)){
+                alturaAux = altura;
+            }else{
+                if(nodo.getIzquierdo() != null){
+                    alturaAux = nivelAux(nodo.getIzquierdo(), elem, altura);
+                }else{
+                    if(alturaAux == -1){
+                        if(nodo.getDerecho() != null){
+                            alturaAux = nivelAux(nodo.getDerecho(), elem, altura);
+                        }
+                    }
+                }
+            }
+        }
+        return alturaAux;
+    }
+
 }
