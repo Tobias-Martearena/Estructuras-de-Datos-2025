@@ -9,7 +9,8 @@ public class ArbolBinario {
    public ArbolBinario(){
     this.raiz = null;
    }
-
+//-----------------------------------------------------------------------------------------//
+//Posible arreglo...
     public boolean insertar(Object nuevoElem, Object elemPadre, char posHijo){
         boolean exito = true;
         if(this.raiz == null){
@@ -99,6 +100,7 @@ public class ArbolBinario {
         }
         return lista;
     }
+//-----------------------------------------------------------------------------------------//
 
     public boolean esVacio(){
         boolean exito = true;
@@ -177,4 +179,20 @@ public class ArbolBinario {
         return res;
     }
     
+    public Lista listarPreOrden(){
+        Lista lista = new Lista();
+        listarPreOrdenAux(this.raiz, lista);
+        return lista;
+    }
+
+    private void listarPreOrdenAux(NodoArbol nodo, Lista lis){
+        if(nodo != null){
+            //Inserta en la lista el elemento
+            lis.insertar(nodo.getElem(), lis.longitud()+1);
+
+            //Recorre sus hijos en preOrden
+            listarPreOrdenAux(nodo.getIzquierdo(), lis);
+            listarPreOrdenAux(nodo.getDerecho(), lis);
+        }
+    }
 }
