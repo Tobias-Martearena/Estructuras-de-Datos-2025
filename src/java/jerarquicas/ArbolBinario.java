@@ -179,20 +179,34 @@ public class ArbolBinario {
         return res;
     }
     
-    public Lista listarPreOrden(){
+    public Lista listarPreorden(){
         Lista lista = new Lista();
-        listarPreOrdenAux(this.raiz, lista);
+        listarPreordenAux(this.raiz, lista);
         return lista;
     }
 
-    private void listarPreOrdenAux(NodoArbol nodo, Lista lis){
+    private void listarPreordenAux(NodoArbol nodo, Lista lis){
         if(nodo != null){
             //Inserta en la lista el elemento
             lis.insertar(nodo.getElem(), lis.longitud()+1);
 
             //Recorre sus hijos en preOrden
-            listarPreOrdenAux(nodo.getIzquierdo(), lis);
-            listarPreOrdenAux(nodo.getDerecho(), lis);
+            listarPreordenAux(nodo.getIzquierdo(), lis);
+            listarPreordenAux(nodo.getDerecho(), lis);
+        }
+    }
+
+    public Lista listarInorden(){
+        Lista lista = new Lista();
+        listarInordenAux(this.raiz, lista);
+        return lista;
+    }
+
+    private void listarInordenAux(NodoArbol nodo,Lista lis){
+        if(nodo != null){
+            listarInordenAux(nodo.getIzquierdo(), lis);
+            lis.insertar(nodo.getElem(), lis.longitud()+1);
+            listarInordenAux(nodo.getDerecho(), lis);
         }
     }
 }
