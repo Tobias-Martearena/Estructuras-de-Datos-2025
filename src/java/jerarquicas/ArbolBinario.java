@@ -294,4 +294,21 @@ public class ArbolBinario {
         }
         return cadena;
     }
+
+    public Lista frontera(){
+        Lista lista = new Lista();
+        fronteraAux(this.raiz, lista);
+        return lista;
+    }
+
+    private void fronteraAux(NodoArbol nodo, Lista lis){
+        if(nodo != null){
+            if(nodo.getIzquierdo() == null && nodo.getDerecho() == null){
+                lis.insertar(nodo.getElem(), lis.longitud()+1);
+            }else{
+                fronteraAux(nodo.getIzquierdo(), lis);
+                fronteraAux(nodo.getDerecho(), lis);
+            }
+        }
+    }
 }
