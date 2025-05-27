@@ -269,4 +269,29 @@ public class ArbolBinario {
     public void vaciar(){
         this.raiz = null;
     }
+
+    public String toString(){
+        String cad = "";
+        if(this.raiz != null){
+            cad = cad + "raiz" + this.raiz.getElem() + "\n";
+            cad = toStringAux(this.raiz, cad);
+        }
+        return cad;
+    }
+
+    private String toStringAux(NodoArbol nodo, String cadena) {
+        if (nodo != null) {
+
+            if (nodo.getIzquierdo() != null) {
+                cadena = cadena + nodo.getIzquierdo().getElem() + "Hi - Padre: " + nodo.getElem() + "\n";
+                cadena = toStringAux(nodo.getIzquierdo(), cadena);
+            }
+            if (nodo.getDerecho() != null) {
+                cadena = cadena + nodo.getDerecho().getElem() + "Hd - Padre:" + nodo.getElem() + "\n";
+                cadena = toStringAux(nodo.getDerecho(), cadena);
+            }
+
+        }
+        return cadena;
+    }
 }
