@@ -246,33 +246,33 @@ public class ArbolBinario {
         }
     }
 
-    public ArbolBinario Clone(){
+    public ArbolBinario Clone() {
         ArbolBinario clone = new ArbolBinario();
-        if(!esVacio()){
+        if (!esVacio()) {
             clone.raiz = cloneAux(this.raiz);
         }
         return clone;
     }
 
-    private NodoArbol cloneAux(NodoArbol nodo){
+    private NodoArbol cloneAux(NodoArbol nodo) {
         NodoArbol nuevo = new NodoArbol(nodo.getElem());
-        if(nodo.getIzquierdo() != null){
+        if (nodo.getIzquierdo() != null) {
             nuevo.setIzquierdo(cloneAux(nodo.getIzquierdo()));
-        }else{
-            if(nodo.getDerecho() != null){
+        } else {
+            if (nodo.getDerecho() != null) {
                 nuevo.setDerecho(cloneAux(nodo.getDerecho()));
             }
         }
         return nuevo;
     }
 
-    public void vaciar(){
+    public void vaciar() {
         this.raiz = null;
     }
 
-    public String toString(){
+    public String toString() {
         String cad = "";
-        if(this.raiz != null){
+        if (this.raiz != null) {
             cad = cad + "raiz" + this.raiz.getElem() + "\n";
             cad = toStringAux(this.raiz, cad);
         }
@@ -295,24 +295,24 @@ public class ArbolBinario {
         return cadena;
     }
 
-    public Lista frontera(){
+    public Lista frontera() {
         Lista lista = new Lista();
         fronteraAux(this.raiz, lista);
         return lista;
     }
 
-    private void fronteraAux(NodoArbol nodo, Lista lis){
-        if(nodo != null){
-            if(nodo.getIzquierdo() == null && nodo.getDerecho() == null){
-                lis.insertar(nodo.getElem(), lis.longitud()+1);
-            }else{
+    private void fronteraAux(NodoArbol nodo, Lista lis) {
+        if (nodo != null) {
+            if (nodo.getIzquierdo() == null && nodo.getDerecho() == null) {
+                lis.insertar(nodo.getElem(), lis.longitud() + 1);
+            } else {
                 fronteraAux(nodo.getIzquierdo(), lis);
                 fronteraAux(nodo.getDerecho(), lis);
             }
         }
     }
 
-    public Lista obtenerAncestro(Object elem){
+    public Lista obtenerAncestro(Object elem) {
         Lista lista = new Lista();
         obtenerAncestroAux(this.raiz, elem, lista);
         return lista;
@@ -321,15 +321,37 @@ public class ArbolBinario {
     private boolean obtenerAncestroAux(NodoArbol nodo, Object elemento, Lista lis) {
         boolean exito = false;
         if (nodo != null) {
-            if(nodo.getElem().equals(elemento)){
+            if (nodo.getElem().equals(elemento)) {
                 exito = true;
-            }else{
-                if(obtenerAncestroAux(nodo.getIzquierdo(), elemento, lis) || obtenerAncestroAux(nodo.getDerecho(), elemento, lis)){
-                    lis.insertar(nodo.getElem(), lis.longitud()+1);
+            } else {
+                if (obtenerAncestroAux(nodo.getIzquierdo(), elemento, lis) || obtenerAncestroAux(nodo.getDerecho(), elemento, lis)) {
+                    lis.insertar(nodo.getElem(), lis.longitud() + 1);
                     exito = true;
                 }
             }
         }
         return exito;
+    }
+
+    public Lista obtenerDecendientes(Object elem) {
+        Lista lista = new Lista();
+        NodoArbol nodoElem = obtenerNodo(this.raiz, elem);
+        if(nodoElem != null){obtenerDecendientesAux(nodoElem, lista);
+        }
+        return lista;
+    }
+
+    private void obtenerDecendientesAux(NodoArbol nodo, Lista lis) {
+        if (nodo != null) {
+            if(nodo.getIzquierdo() != null){
+                lis.insertar(nodo.getIzquierdo().getElem(), lis.longitud()+1);
+                obtenerDecendientesAux(nodo.getIzquierdo(), lis);
+            }else{
+                if(nodo.getDerecho() != null){
+                    lis.insertar(nodo.getDerecho().getElem(), lis.longitud()+1);
+                    obtenerDecendientesAux(nodo.getDerecho(), lis);
+                }
+            }
+        }
     }
 }
