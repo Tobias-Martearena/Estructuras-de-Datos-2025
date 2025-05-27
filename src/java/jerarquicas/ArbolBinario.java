@@ -245,4 +245,24 @@ public class ArbolBinario {
             }
         }
     }
+
+    public ArbolBinario Clone(){
+        ArbolBinario clone = new ArbolBinario();
+        if(!esVacio()){
+            clone.raiz = cloneAux(this.raiz);
+        }
+        return clone;
+    }
+
+    private NodoArbol cloneAux(NodoArbol nodo){
+        NodoArbol nuevo = new NodoArbol(nodo.getElem());
+        if(nodo.getIzquierdo() != null){
+            nuevo.setIzquierdo(cloneAux(nodo.getIzquierdo()));
+        }else{
+            if(nodo.getDerecho() != null){
+                nuevo.setDerecho(cloneAux(nodo.getDerecho()));
+            }
+        }
+        return nuevo;
+    }
 }
