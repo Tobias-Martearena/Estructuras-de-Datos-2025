@@ -311,4 +311,25 @@ public class ArbolBinario {
             }
         }
     }
+
+    public Lista obtenerAncestro(Object elem){
+        Lista lista = new Lista();
+        obtenerAncestroAux(this.raiz, elem, lista);
+        return lista;
+    }
+
+    private boolean obtenerAncestroAux(NodoArbol nodo, Object elemento, Lista lis) {
+        boolean exito = false;
+        if (nodo != null) {
+            if(nodo.getElem().equals(elemento)){
+                exito = true;
+            }else{
+                if(obtenerAncestroAux(nodo.getIzquierdo(), elemento, lis) || obtenerAncestroAux(nodo.getDerecho(), elemento, lis)){
+                    lis.insertar(nodo.getElem(), lis.longitud()+1);
+                    exito = true;
+                }
+            }
+        }
+        return exito;
+    }
 }
