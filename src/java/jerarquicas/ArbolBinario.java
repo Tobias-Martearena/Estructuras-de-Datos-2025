@@ -209,4 +209,18 @@ public class ArbolBinario {
             listarInordenAux(nodo.getDerecho(), lis);
         }
     }
+
+    public Lista listarPosorden(){
+        Lista lista = new Lista();
+        listarPosordenAux(this.raiz, lista);
+        return lista;
+    }
+
+    private void listarPosordenAux(NodoArbol nodo, Lista lis){
+        if(nodo != null){
+            listarPosordenAux(nodo.getIzquierdo(), lis);
+            listarPosordenAux(nodo.getDerecho(), lis);
+            lis.insertar(nodo.getElem(), lis.longitud()+1);
+        }
+    }
 }
