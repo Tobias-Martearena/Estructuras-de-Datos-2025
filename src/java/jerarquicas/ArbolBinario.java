@@ -265,4 +265,8 @@ public class ArbolBinario {
         }
         return nuevo;
     }
+
+    public void vaciar(){
+        this.raiz = null;
+    }
 }
