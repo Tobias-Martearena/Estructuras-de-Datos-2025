@@ -1,23 +1,23 @@
 package java.jerarquicas;
 
 public class NodoArbol {
-    Object elemento;
-    NodoArbol izquierdo;
-    NodoArbol derecho;
+    private Object elemento;
+    private NodoArbol izquierdo;
+    private NodoArbol derecho;
 
-    public NodoArbol(Object unElemento){
+    public NodoArbol(Object unElemento) {
         this.elemento = unElemento;
         this.izquierdo = null;
         this.derecho = null;
     }
 
-    public NodoArbol(Object unElemento, NodoArbol unIzquierdo, NodoArbol unDerecho){
+    public NodoArbol(Object unElemento, NodoArbol unIzquierdo, NodoArbol unDerecho) {
         this.elemento = unElemento;
         this.izquierdo = unIzquierdo;
         this.derecho = unDerecho;
     }
 
-    public Object getElem(){
+    public Object getElem() {
         return elemento;
     }
 
@@ -25,19 +25,19 @@ public class NodoArbol {
         return izquierdo;
     }
 
-    public NodoArbol getDerecho(){
+    public NodoArbol getDerecho() {
         return derecho;
     }
 
-    public void setElem(Object unElemento){
+    public void setElem(Object unElemento) {
         elemento = unElemento;
     }
 
-    public void setIzquierdo(NodoArbol unIzquierdo){
+    public void setIzquierdo(NodoArbol unIzquierdo) {
         izquierdo = unIzquierdo;
     }
 
-    public void setDerecho(NodoArbol unDerecho){
+    public void setDerecho(NodoArbol unDerecho) {
         derecho = unDerecho;
     }
 }
