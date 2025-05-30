@@ -1,7 +1,7 @@
-package java.tests.jerarquicas;
+package tests.jerarquicas;
 
-import java.jerarquicas.ArbolBinario;
-import java.lineales.dinamicas.Lista;
+import jerarquicas.ArbolBinario;
+import lineales.dinamicas.Lista;
 
 public class testArbolBinario {
     public static void main(String[] args) {

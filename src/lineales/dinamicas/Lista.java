@@ -1,4 +1,4 @@
-package java.lineales.dinamicas;
+package lineales.dinamicas;
 public class Lista {
 
     private Nodo cabecera;

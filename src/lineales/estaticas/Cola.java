@@ -1,4 +1,4 @@
-package java.lineales.estaticas;
+package lineales.estaticas;
 
 public class Cola {
     private Object[] arreglo;

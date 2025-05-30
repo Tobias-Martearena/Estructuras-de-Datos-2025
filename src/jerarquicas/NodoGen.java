@@ -1,4 +1,4 @@
-package java.jerarquicas;
+package jerarquicas;
 
 public class NodoGen {
     private Object tipoElmento;

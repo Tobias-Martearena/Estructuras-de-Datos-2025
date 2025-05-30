@@ -1,4 +1,4 @@
-package java.jerarquicas;
+package jerarquicas;
 
 public class NodoArbol {
     private Object elemento;
