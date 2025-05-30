@@ -4,7 +4,7 @@ public class Cola {
     private Object[] arreglo;
     private int frente;
     private int fin;
-    private static final int TAMANIO = 10;
+    private final int TAMANIO = 10;
 
     public Cola(){
         this.arreglo = new Object[TAMANIO];
