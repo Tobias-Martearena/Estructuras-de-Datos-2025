@@ -3,8 +3,7 @@ package java.tests.jerarquicas;
 import java.jerarquicas.ArbolBinario;
 import java.lineales.dinamicas.Lista;
 
-public class arbolTest {
-
+public class testArbolBinario {
     public static void main(String[] args) {
         ArbolBinario prueba = new ArbolBinario();
 
@@ -43,5 +42,4 @@ public class arbolTest {
         //System.out.println(clonInv.toString());
 
     }
-
 }
