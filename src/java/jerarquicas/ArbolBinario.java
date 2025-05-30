@@ -246,7 +246,7 @@ public class ArbolBinario {
         }
     }
 
-    public ArbolBinario Clone() {
+    public ArbolBinario clone() {
         ArbolBinario clone = new ArbolBinario();
         if (!esVacio()) {
             clone.raiz = cloneAux(this.raiz);
