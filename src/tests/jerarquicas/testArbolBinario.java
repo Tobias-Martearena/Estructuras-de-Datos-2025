@@ -39,7 +39,7 @@ public class testArbolBinario {
 
          // Clonado
         ArbolBinario clon = prueba.clone();
-        System.out.println("Clon (preorden): " + clon.toString());
+        System.out.println("Clon (preorden): " + clon.listarPreorden());
         Lista patron = new Lista();
 
         patron.insertar(1, 1);

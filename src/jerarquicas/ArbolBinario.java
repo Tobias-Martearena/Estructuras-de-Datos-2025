@@ -228,22 +228,22 @@ public class ArbolBinario {
 
     public Lista listarPorNiveles() {
         Lista lista = new Lista();
-        int altura = altura();
-        for (int i = 0; i <= altura; i++) {
-            listarPorNivelesAux(this.raiz, lista, 0);
-        }
-        return lista;
-    }
-
-    private void listarPorNivelesAux(NodoArbol nodo, Lista lis, int nivel) {
-        if (nodo != null) {
-            if (nivel == 0) {
-                lis.insertar(nodo.getElem(), lis.longitud() + 1);
-            } else {
-                listarPorNivelesAux(nodo.getIzquierdo(), lis, nivel - 1);
-                listarPorNivelesAux(nodo.getDerecho(), lis, nivel - 1);
+        Cola cola = new Cola();
+        if(this.raiz != null){
+            cola.poner(this.raiz);
+            while(!cola.esVacia()){
+                NodoArbol nodo = (NodoArbol)cola.obtenerFrente();
+                cola.sacar();
+                lista.insertar(nodo.getElem(), lista.longitud()+1);
+                if(nodo.getIzquierdo() != null){
+                    cola.poner(nodo.getIzquierdo());
+                }
+                if(nodo.getDerecho() != null){
+                    cola.poner(nodo.getDerecho());
+                }
             }
         }
+        return lista;
     }
 
     public ArbolBinario clone() {
@@ -258,10 +258,9 @@ public class ArbolBinario {
         NodoArbol nuevo = new NodoArbol(nodo.getElem());
         if (nodo.getIzquierdo() != null) {
             nuevo.setIzquierdo(cloneAux(nodo.getIzquierdo()));
-        } else {
-            if (nodo.getDerecho() != null) {
-                nuevo.setDerecho(cloneAux(nodo.getDerecho()));
-            }
+        }
+        if (nodo.getDerecho() != null) {
+            nuevo.setDerecho(cloneAux(nodo.getDerecho()));
         }
         return nuevo;
     }
