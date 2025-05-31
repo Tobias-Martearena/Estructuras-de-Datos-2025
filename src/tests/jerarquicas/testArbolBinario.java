@@ -18,6 +18,28 @@ public class testArbolBinario {
         System.out.println(prueba.insertar(8, 7, 'I'));
         System.out.println(prueba.insertar(9, 8, 'D'));
 
+        // Recorridos
+        System.out.println("Recorrido Preorden: " + prueba.listarPreorden());
+        System.out.println("Recorrido Inorden: " + prueba.listarInorden());
+        System.out.println("Recorrido Posorden: " + prueba.listarPosorden());
+        System.out.println("Recorrido por Niveles: " + prueba.listarPorNiveles());
+
+        // Frontera (hojas)
+        System.out.println("Frontera (hojas): " + prueba.frontera());
+
+        // Ancestros de un nodo
+        System.out.println("Ancestros de 9: " + prueba.obtenerAncestro(9));
+
+        // Descendientes de un nodo
+        System.out.println("Descendientes de 2: " + prueba.obtenerDecendientes(2));
+
+        // Altura y nivel
+        System.out.println("Altura del árbol: " + prueba.altura());
+        System.out.println("Nivel de 9: " + prueba.nivel(9));
+
+         // Clonado
+        ArbolBinario clon = prueba.clone();
+        System.out.println("Clon (preorden): " + clon.toString());
         Lista patron = new Lista();
 
         patron.insertar(1, 1);
@@ -26,19 +48,18 @@ public class testArbolBinario {
         patron.insertar(5, patron.longitud() + 1);
 
         //System.out.println(prueba.verificarPatron(patron));
-        Lista hojas = prueba.frontera();
+        //Lista hojas = prueba.frontera();
 
-        System.out.println(hojas.toString());
+        //System.out.println(hojas.toString());
 
-        ArbolBinario clon = prueba.clone();
 
-        Lista preorden = clon.listarPreorden();
-        System.out.println(preorden.toString());
+        //Lista preorden = clon.listarPreorden();
+        //System.out.println(preorden.toString());
 
         //ArbolBinario clonInv = prueba.cloneInvertido();
         //Lista preordenInv = clonInv.ListarPreorden();
         //System.out.println(preordenInv.toString());
-        System.out.println(clon.toString());
+        //System.out.println(clon.toString());
         //System.out.println(clonInv.toString());
 
     }
