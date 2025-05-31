@@ -46,21 +46,5 @@ public class testArbolBinario {
         patron.insertar(3, patron.longitud() + 1);
         patron.insertar(4, patron.longitud() + 1);
         patron.insertar(5, patron.longitud() + 1);
-
-        //System.out.println(prueba.verificarPatron(patron));
-        //Lista hojas = prueba.frontera();
-
-        //System.out.println(hojas.toString());
-
-
-        //Lista preorden = clon.listarPreorden();
-        //System.out.println(preorden.toString());
-
-        //ArbolBinario clonInv = prueba.cloneInvertido();
-        //Lista preordenInv = clonInv.ListarPreorden();
-        //System.out.println(preordenInv.toString());
-        //System.out.println(clon.toString());
-        //System.out.println(clonInv.toString());
-
     }
 }
