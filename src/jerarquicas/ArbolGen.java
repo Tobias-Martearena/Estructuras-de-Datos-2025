@@ -93,4 +93,26 @@ public class ArbolGen {
         }
         return nodoRes;
     }
+
+    public boolean pertenece(Object elemento){
+        boolean exito = perteneceAux(this.raiz, elemento);
+        return exito;
+    }
+
+    private boolean perteneceAux(NodoGen nodo, Object elem){
+        boolean exito = false;
+        if(nodo != null){
+            if(nodo.getElem().equals(elem)){
+                exito = true;
+            }else{
+                NodoGen hijo = nodo.getHijoIzquierdo();
+
+                while(hijo != null && exito == false){
+                    exito = perteneceAux(hijo, elem);
+                    hijo = hijo.getHermanoDerecho();
+                }
+            }
+        }
+        return exito;
+    }
 }
