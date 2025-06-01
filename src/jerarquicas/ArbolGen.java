@@ -1,5 +1,5 @@
 package jerarquicas;
-
+import lineales.dinamicas.Lista;
 public class ArbolGen {
     private NodoGen raiz;
 
@@ -110,6 +110,32 @@ public class ArbolGen {
                 while(hijo != null && exito == false){
                     exito = perteneceAux(hijo, elem);
                     hijo = hijo.getHermanoDerecho();
+                }
+            }
+        }
+        return exito;
+    }
+
+    public Lista ancestros(Object elemento){
+        Lista lista = new Lista();
+        ancestrosAux(this.raiz, elemento, lista);
+        return lista;
+    }
+
+    private boolean ancestrosAux(NodoGen nodo, Object elem, Lista lis){
+        boolean exito = false;
+        if(nodo != null){
+            if(nodo.getElem().equals(elem)){
+                exito = true;
+            }else{
+                NodoGen hijo = nodo.getHijoIzquierdo();
+
+                while(hijo != null && exito == false){
+                    exito = ancestrosAux(hijo, elem, lis);
+                    hijo = hijo.getHermanoDerecho();
+                }
+                if(exito == true){
+                    lis.insertar(nodo.getElem(), lis.longitud()+1);
                 }
             }
         }
