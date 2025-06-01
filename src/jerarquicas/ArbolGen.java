@@ -141,4 +141,8 @@ public class ArbolGen {
         }
         return exito;
     }
+
+    public boolean esVacio(){
+        return (this.raiz == null);
+    }
 }
