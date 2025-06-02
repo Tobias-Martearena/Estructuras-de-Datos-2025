@@ -201,7 +201,7 @@ public class ArbolGen {
             if (hijo != null) {
                 while (hijo != null && padre == null) {
                     if (hijo.getElem().equals(elem)) {
-                        padre = hijo.getElem();
+                        padre = nodo.getElem();
                     }
                     hijo = hijo.getHermanoDerecho();
                 }
@@ -225,7 +225,7 @@ public class ArbolGen {
 
     private void listarPreordenAux(NodoGen nodo, Lista lis){
         if(nodo != null){
-            lis.insertar(nodo, lis.longitud()+1);
+            lis.insertar(nodo.getElem(), lis.longitud()+1);
             NodoGen hijo = nodo.getHijoIzquierdo();
             while(hijo != null){
                 listarPreordenAux(hijo, lis);
@@ -328,7 +328,7 @@ public class ArbolGen {
             s += nodo.getElem().toString() + " -> ";
             NodoGen hijo = nodo.getHijoIzquierdo();
             while(hijo != null){
-                s += hijo.getElem().toString();
+                s += hijo.getElem().toString() + " ";
                 hijo = hijo.getHermanoDerecho();
             }
             //comienza recorrido de los hijos de nodo llamado recursivamente
