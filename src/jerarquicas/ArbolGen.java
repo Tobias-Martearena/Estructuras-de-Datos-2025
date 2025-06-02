@@ -249,4 +249,30 @@ public class ArbolGen {
             lis.insertar(nodo.getElem(), lis.longitud() + 1);
         }
     }
+
+    public Lista listarInorden(){
+        Lista lista = new Lista();
+        listarInordenAux(this.raiz, lista);
+        return lista;
+    }
+
+    private void listarInordenAux(NodoGen nodo, Lista lis){
+        if(nodo != null){
+            NodoGen primerHijo = nodo.getHijoIzquierdo();
+            if(primerHijo != null){
+                listarInordenAux(primerHijo, lis);
+            }
+            lis.insertar(nodo.getElem(), lis.longitud() + 1);
+            NodoGen hermano;
+            if(primerHijo != null){
+                hermano = primerHijo.getHermanoDerecho();
+            }else{
+                hermano = null;
+            }
+            while(hermano != null){
+                listarInordenAux(hermano, lis);
+                hermano = hermano.getHermanoDerecho();
+            }
+        }
+    }
 }
