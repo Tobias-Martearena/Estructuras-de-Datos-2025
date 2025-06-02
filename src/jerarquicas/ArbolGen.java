@@ -232,4 +232,21 @@ public class ArbolGen {
             }
         }
     }
+
+    public Lista listarPosorden(){
+        Lista lista = new Lista();
+        listarPosordenAux(this.raiz, lista);
+        return lista;
+    }
+
+    private void listarPosordenAux(NodoGen nodo, Lista lis){
+        if(nodo != null){
+            NodoGen hijo = nodo.getHijoIzquierdo();
+            while(hijo != null){
+                listarPosordenAux(hijo, lis);
+                hijo = hijo.getHermanoDerecho();
+            }
+            lis.insertar(nodo.getElem(), lis.longitud() + 1);
+        }
+    }
 }
