@@ -317,4 +317,28 @@ public class ArbolGen {
     public void vaciar(){
         this.raiz = null;
     }
+
+    public String toString(){
+        return toStringAux(this.raiz);
+    }
+
+    private String toStringAux(NodoGen nodo){
+        String s = "";
+        if(nodo != null){
+            s += nodo.getElem().toString() + " -> ";
+            NodoGen hijo = nodo.getHijoIzquierdo();
+            while(hijo != null){
+                s += hijo.getElem().toString();
+                hijo = hijo.getHermanoDerecho();
+            }
+            //comienza recorrido de los hijos de nodo llamado recursivamente
+            //para que cada hijo agregue su subcadena a la general
+            hijo = nodo.getHijoIzquierdo();
+            while(hijo != null){
+                s += "\n" + toStringAux(hijo);
+                hijo = hijo.getHermanoDerecho();
+            }
+        }
+        return s;
+    }
 }
