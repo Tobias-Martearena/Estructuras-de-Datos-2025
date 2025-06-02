@@ -165,4 +165,24 @@ public class ArbolGen {
         }
         return respuesta;
     }
+
+    public int nivel(Object elemento){
+        return nivelAux(this.raiz, elemento, -1);
+    }
+
+    private int nivelAux(NodoGen nodo, Object elem, int alt){
+        int nivel = -1;
+        if(nodo != null){
+            if(nodo.getElem().equals(elem)){
+                nivel = alt + 1;
+            }else{
+                NodoGen hijo = nodo.getHijoIzquierdo();
+                while(hijo != null && nivel == -1){
+                    nivel = nivelAux(hijo, elem, alt + 1);
+                    hijo = hijo.getHermanoDerecho();
+                }
+            }
+        }
+        return nivel;
+    }
 }
