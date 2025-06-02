@@ -295,4 +295,22 @@ public class ArbolGen {
         }
         return lista;
     }
+
+    public ArbolGen clone(){
+        ArbolGen clone = new ArbolGen();
+        if(!esVacio()){
+            clone.raiz = cloneAux(this.raiz);
+        }
+        return clone;
+    }
+
+    private NodoGen cloneAux(NodoGen nodo){
+        NodoGen nuevo = null;
+        if(nodo != null){
+            nuevo = new NodoGen(nodo.getElem());
+            nuevo.setHijoIzquierdo(cloneAux(nodo.getHijoIzquierdo()));
+            nuevo.setHermanoDerecho(cloneAux(nodo.getHermanoDerecho()));
+        }
+        return nuevo;
+    }
 }
