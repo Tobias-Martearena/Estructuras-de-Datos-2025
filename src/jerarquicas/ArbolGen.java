@@ -215,4 +215,21 @@ public class ArbolGen {
         }
         return padre;
     }
+
+    public Lista listarPreorden(){
+        Lista lista = new Lista();
+        listarPreordenAux(this.raiz, lista);
+        return lista;
+    }
+
+    private void listarPreordenAux(NodoGen nodo, Lista lis){
+        if(nodo != null){
+            lis.insertar(nodo, lis.longitud()+1);
+            NodoGen hijo = nodo.getHijoIzquierdo();
+            while(hijo != null){
+                listarPreordenAux(hijo, lis);
+                hijo = hijo.getHermanoDerecho();
+            }
+        }
+    }
 }
