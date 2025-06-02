@@ -1,5 +1,6 @@
 package jerarquicas;
 
+import lineales.dinamicas.Cola;
 import lineales.dinamicas.Lista;
 
 public class ArbolGen {
@@ -274,5 +275,24 @@ public class ArbolGen {
                 hermano = hermano.getHermanoDerecho();
             }
         }
+    }
+
+    public Lista listarPorNiveles(){
+        Lista lista = new Lista();
+        Cola cola = new Cola();
+        if(this.raiz != null){
+            cola.poner(this.raiz);
+            while(!cola.esVacia()){
+                NodoGen nodo = (NodoGen)cola.obtenerFrente();
+                cola.sacar();
+                lista.insertar(nodo.getElem(), lista.longitud() + 1);
+                NodoGen hijo = nodo.getHijoIzquierdo();
+                while(hijo != null){
+                    cola.poner(hijo);
+                    hijo = hijo.getHermanoDerecho();
+                }
+            }
+        }
+        return lista;
     }
 }
