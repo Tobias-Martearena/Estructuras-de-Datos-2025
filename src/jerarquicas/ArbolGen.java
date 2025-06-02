@@ -145,4 +145,24 @@ public class ArbolGen {
     public boolean esVacio(){
         return (this.raiz == null);
     }
+
+    public int altura(){
+        return alturaAux(this.raiz);
+    }
+
+    private int alturaAux(NodoGen nodo){
+        int respuesta = -1;
+        if(nodo != null){
+            NodoGen hijo = nodo.getHijoIzquierdo();
+            while(hijo != null){
+                int alturaHijo = alturaAux(hijo);
+                if(alturaHijo > respuesta){
+                    respuesta = alturaHijo;
+                }
+                hijo = hijo.getHermanoDerecho();
+            }
+            respuesta++;
+        }
+        return respuesta;
+    }
 }
