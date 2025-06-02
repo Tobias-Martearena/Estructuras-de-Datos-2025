@@ -313,4 +313,8 @@ public class ArbolGen {
         }
         return nuevo;
     }
+
+    public void vaciar(){
+        this.raiz = null;
+    }
 }
