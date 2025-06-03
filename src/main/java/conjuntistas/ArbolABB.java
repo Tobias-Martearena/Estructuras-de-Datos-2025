@@ -118,4 +118,20 @@ public class ArbolABB {
             }
         }
     }
+
+    public Comparable minimoElem(){
+        return minimoElemAux(this.raiz);
+    }
+
+    private Comparable minimoElemAux(NodoABB nodo){
+        Comparable retorno = null;
+        if(nodo.getElem() != null){
+            if(nodo.getIzquierdo() == null){
+                retorno = nodo.getElem();
+            }else{
+                retorno = minimoElemAux(nodo.getIzquierdo());
+            }
+        }
+        return retorno;
+    }
 }
