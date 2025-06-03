@@ -28,4 +28,16 @@ public class NodoABB {
     public NodoABB getDerecho(){
         return this.derecho;
     }
+
+    public void setElem(Comparable elemento){
+        this.elem = elemento;
+    }
+
+    public void setIzquierdo(NodoABB hijoIzq){
+        this.izquierdo = hijoIzq;
+    }
+
+    public void setDerecho(NodoABB hijoDer){
+        this.derecho = hijoDer;
+    }
 }
