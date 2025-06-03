@@ -92,7 +92,7 @@ public class ArbolABB {
     }
 
     private void listarAux(NodoABB nodo, Lista lis){
-        if(nodo.getElem() != null){
+        if(nodo != null){
             listarAux(nodo.getIzquierdo(), lis);
             lis.insertar(nodo.getElem(), lis.longitud() + 1);
             listarAux(nodo.getDerecho(), lis);
@@ -106,7 +106,7 @@ public class ArbolABB {
     }
 
     private void listarRangoAux(NodoABB nodo, Comparable min, Comparable max, Lista lis){
-        if(nodo.getElem() != null){
+        if(nodo != null){
             if(min.compareTo(nodo.getElem()) < 0){
                 listarRangoAux(nodo.getIzquierdo(), min, max, lis);
             }
