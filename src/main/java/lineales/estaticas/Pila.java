@@ -1,4 +1,4 @@
-package lineales.estaticas;
+package main.java.lineales.estaticas;
 public class Pila{
 private final int TAMANIO = 10;
 private Object[] arreglo;

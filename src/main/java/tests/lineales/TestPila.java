@@ -1,6 +1,6 @@
-package tests.lineales;
+package main.java.tests.lineales;
 
-import lineales.estaticas.Pila;
+import main.java.lineales.estaticas.Pila;
 public class TestPila {
     public static void main(String[] args) {
         Pila pila = new Pila();

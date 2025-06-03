@@ -1,4 +1,4 @@
-package lineales.dinamicas;
+package main.java.lineales.dinamicas;
 
 public class Cola {
     private Nodo frente;

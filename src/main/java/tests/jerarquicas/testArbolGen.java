@@ -1,6 +1,6 @@
-package tests.jerarquicas;
+package main.java.tests.jerarquicas;
 
-import jerarquicas.ArbolGen;
+import main.java.jerarquicas.ArbolGen;
 
 public class testArbolGen {
 

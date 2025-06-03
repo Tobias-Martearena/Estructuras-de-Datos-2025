@@ -1,7 +1,7 @@
-package jerarquicas;
+package main.java.jerarquicas;
 
-import lineales.dinamicas.Cola;
-import lineales.dinamicas.Lista;
+import main.java.lineales.dinamicas.Cola;
+import main.java.lineales.dinamicas.Lista;
 
 public class ArbolBinario {
 
