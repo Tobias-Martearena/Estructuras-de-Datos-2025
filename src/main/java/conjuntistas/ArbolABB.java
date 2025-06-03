@@ -78,4 +78,8 @@ public class ArbolABB {
         }
         return exito;
     }
+
+    public boolean esVacio(){
+        return (this.raiz == null);
+    }
 }
