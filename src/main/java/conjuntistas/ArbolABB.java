@@ -18,7 +18,7 @@ public class ArbolABB {
         return exito;
     }
 
-    public boolean insertarAux(NodoABB nodo, Comparable elem) {
+    private boolean insertarAux(NodoABB nodo, Comparable elem) {
         boolean exito = true;
         if ((elem.compareTo(nodo.getElem())) == 0) {
             exito = false;
@@ -33,6 +33,47 @@ public class ArbolABB {
                 exito = insertarAux(nodo.getDerecho(), elem);
             } else {
                 nodo.setDerecho(new NodoABB(elem));
+            }
+        }
+        return exito;
+    }
+
+    //Meotod Eliminar a terminar, es muy complicado...
+    /* 
+    public boolean eliminar(Comparable elemento){
+        return eliminarAux(this.raiz, elemento);
+    }
+
+    private boolean eliminarAux(NodoABB nodo, Comparable elem){
+        boolean exito = true;
+        if(nodo.getElem() != null){
+            if(elem.compareTo(nodo.getElem()) == 0){
+
+            }
+        }
+        return exito;
+    }
+    */
+
+    public boolean pertenece(Comparable elemento){
+        return perteneceAux(this.raiz, elemento);
+    }
+
+    private boolean perteneceAux(NodoABB nodo, Comparable elem){
+        boolean exito = false;
+        if(nodo.getElem() != null){
+            if(elem.compareTo(nodo.getElem()) == 0){
+                exito = true;
+            }else{
+                if(elem.compareTo(nodo.getElem()) < 0){
+                    if(nodo.getIzquierdo() != null){
+                        exito = perteneceAux(nodo.getIzquierdo(), elem);
+                    }
+                }else{
+                    if(nodo.getDerecho() != null){
+                        exito = perteneceAux(nodo.getDerecho(), elem);
+                    }
+                }
             }
         }
         return exito;
