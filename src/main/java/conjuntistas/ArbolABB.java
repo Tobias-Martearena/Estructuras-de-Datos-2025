@@ -98,4 +98,24 @@ public class ArbolABB {
             listarAux(nodo.getDerecho(), lis);
         }
     }
+
+    public Lista listarRango(Comparable minimo, Comparable maximo){
+        Lista lista = new Lista();
+        listarRangoAux(this.raiz, minimo, maximo, lista);
+        return lista;
+    }
+
+    private void listarRangoAux(NodoABB nodo, Comparable min, Comparable max, Lista lis){
+        if(nodo.getElem() != null){
+            if(min.compareTo(nodo.getElem()) < 0){
+                listarRangoAux(nodo.getIzquierdo(), min, max, lis);
+            }
+            if(min.compareTo(nodo.getElem()) <= 0 && max.compareTo(nodo.getElem()) >= 0){
+                lis.insertar(nodo.getElem(), lis.longitud() + 1);
+            }
+            if(max.compareTo(nodo.getElem()) > 0){
+                listarRangoAux(nodo.getDerecho(), min, max, lis);
+            }
+        }
+    }
 }
