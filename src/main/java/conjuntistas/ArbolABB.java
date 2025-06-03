@@ -1,5 +1,7 @@
 package main.java.conjuntistas;
 
+import main.java.lineales.dinamicas.Lista;
+
 public class ArbolABB {
 
     private NodoABB raiz;
@@ -81,5 +83,19 @@ public class ArbolABB {
 
     public boolean esVacio(){
         return (this.raiz == null);
+    }
+
+    public Lista listar(){
+        Lista lista = new Lista();
+        listarAux(this.raiz, lista);
+        return lista;
+    }
+
+    private void listarAux(NodoABB nodo, Lista lis){
+        if(nodo.getElem() != null){
+            listarAux(nodo.getIzquierdo(), lis);
+            lis.insertar(nodo.getElem(), lis.longitud() + 1);
+            listarAux(nodo.getDerecho(), lis);
+        }
     }
 }
