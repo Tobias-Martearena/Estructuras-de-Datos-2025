@@ -16,4 +16,16 @@ public class NodoABB {
         this.izquierdo = hijoIzq;
         this.derecho = hijoDer;
     }
+
+    public Comparable getElem(){
+        return this.elem;
+    }
+
+    public NodoABB getIzquierdo(){
+        return this.izquierdo;
+    }
+
+    public NodoABB getDerecho(){
+        return this.derecho;
+    }
 }
