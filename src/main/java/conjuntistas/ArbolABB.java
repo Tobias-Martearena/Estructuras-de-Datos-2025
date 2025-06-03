@@ -134,4 +134,20 @@ public class ArbolABB {
         }
         return retorno;
     }
+
+    public Comparable maximoElem(){
+        return maximoElemAux(this.raiz);
+    }
+
+    private Comparable maximoElemAux(NodoABB nodo){
+        Comparable retorno = null;
+        if(nodo.getElem() != null){
+            if(nodo.getDerecho() == null){
+                retorno = nodo.getElem();
+            }else{
+                retorno = maximoElemAux(nodo.getDerecho());
+            }
+        }
+        return retorno;
+    }
 }
