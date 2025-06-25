@@ -98,4 +98,52 @@ public class Cola {
 
         return cadena;
     }
+
+    public boolean verificarCola(int t, Cola c){
+        boolean exito = true;
+        int i =0;
+        Pila auxPila = new Pila();
+        if(c.verificarLongitud(c, t)){
+            while(!c.esVacia() && exito){
+                i = 0;
+                while(i < t && !c.esVacia()){
+                    Object elem = c.obtenerFrente();
+                    auxPila.apilar(elem);
+                    c.sacar();
+                    i++;
+                }
+                i = 0;
+                while( i < t && !c.esVacia() && exito){
+                    Object elem = c.obtenerFrente();
+                    Object tope = auxPila.obtenerTope();
+                    if(tope == null || !tope.equals(elem)){
+                        exito = false;
+                    }
+                    auxPila.desapilar();
+                    c.sacar();
+                    i++;
+                }
+            }  
+        }else{
+            exito = false;
+        }
+        return exito;
+    }
+
+    private boolean verificarLongitud(Cola c, int t){
+        int longitud = 0;
+        Cola auxCola = new Cola();
+
+        while(!c.esVacia()){
+            auxCola.poner(c.obtenerFrente());
+            c.sacar();
+            longitud++;
+        }
+
+        while(!auxCola.esVacia()){
+            c.poner(auxCola.obtenerFrente());
+            auxCola.sacar();
+        }
+        return longitud % (2*t) == 0;
+    }
 }
